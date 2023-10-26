@@ -11,10 +11,12 @@ from django.utils.decorators import method_decorator
 from rest_framework.pagination import PageNumberPagination
 from .tasks import save_transactions_to_db
 
+
 class TransactionPagination(PageNumberPagination):
     page_size = 10
     page_size_query_param = 'page_size'
     max_page_size = 1000
+
 
 @throttle_classes([ScopedRateThrottle])
 class TxnView(APIView):

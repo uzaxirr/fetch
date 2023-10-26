@@ -16,7 +16,7 @@ def save_transactions_to_db(transactions):
         )
         txn_instances.append(txn_instance)
     try:
-        Txn.objects.bulk_create(txn_instances)
+        Txn.objects.bulk_create(txn_instances, batch_size=100)
         print("Transactions poplulated into DB")
         return True
     except:
