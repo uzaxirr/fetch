@@ -71,7 +71,7 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'fetch.urls'
-CELERY_BROKER_URL = os.environ.get("CELERY_BROKER_URL")
+CELERY_BROKER_URL = os.getenv("CELERY_BROKER_URL")
 
 TEMPLATES = [
     {
@@ -94,7 +94,7 @@ WSGI_APPLICATION = 'fetch.wsgi.application'
 CACHES = {
     "default": {
         "BACKEND": "django_redis.cache.RedisCache",
-        "LOCATION": os.environ.get("REDIS_CACHE_DB"),
+        "LOCATION": os.getenv("REDIS_CACHE_DB"),
         "OPTIONS": {
             "CLIENT_CLASS": "django_redis.client.DefaultClient",
         }
@@ -104,11 +104,11 @@ CACHES = {
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
-        "NAME": os.environ.get("PSQL_DB_NAME"),
-        "USER": os.environ.get("PSQL_DB_USER"),
-        "PASSWORD": os.environ.get("PSQL_DB_PASSWORD"),
-        "HOST": os.environ.get("PSQL_DB_HOST"),
-        "PORT": os.environ.get("PSQL_DB_PORT"),
+        "NAME": os.getenv("PSQL_DB_NAME"),
+        "USER": os.getenv("PSQL_DB_USER"),
+        "PASSWORD": os.getenv("PSQL_DB_PASSWORD"),
+        "HOST": os.getenv("PSQL_DB_HOST"),
+        "PORT": os.getenv("PSQL_DB_PORT"),
         'CONN_MAX_AGE': 300,
         'CONN_POOL_CLASS': 'fetch.pooling.ConnectionPool',
         'POOL_SIZE': 5,

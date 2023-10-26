@@ -1,5 +1,8 @@
+Demo Video 
+https://www.loom.com/share/20ef5492b1bd4738a20185b1a70f997a?sid=b5ceaa66-b2be-4f6b-bfd9-26544fdd7295
+
 # Setup
-This assumes that you have a postgres DB on port 5432 and a redis server running on 6379
+This assumes that you have a postgres DB on port 5432 and a redis server running on 6379. I didn't dockerized the project.
 **Set up a Virtual Environment**
 ```
 # Install virtualenv if not installed 
@@ -63,6 +66,8 @@ This will create records in batches of 100. If you have, for instance, 500 trans
 ### Pagination
 The list API is fully paginated with a default page size of 10. This prevents fetching all results from the DB at once. Helpful when the list API have to get a lot of transactions.
 
+### Caching
+The list API supports caching via Redis and TTL is 300sec for it.
 
 ## API Specs
 
