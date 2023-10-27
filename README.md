@@ -69,6 +69,10 @@ The list API is fully paginated with a default page size of 10. This prevents fe
 ### Caching
 The list API supports caching via Redis and TTL is 300sec for it.
 
+### DB Pooling
+I've also added DB pooling so that server may not make a new DB connection for every request instead use the old connection from pool.
+The default pool size is 5 connections. I've implement it using a custom class for pooling called `ConnectionPool`  (can be found in `fetch/pooling.py`)
+
 ## API Specs
 
 For your convinence i've also created a script that would generate some dummy payload for testing purpose.

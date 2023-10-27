@@ -1,5 +1,6 @@
 from psycopg2 import pool
 
+
 class ConnectionPool(object):
     def __init__(self, **kwargs):
         self.pool_size = kwargs.pop('POOL_SIZE', 5)
